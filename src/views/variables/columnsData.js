@@ -94,4 +94,77 @@ export const complainColumnsData = [
     Header: "ሁኔታ",
     accessor: "status",
   },
+  {
+    Header: "ድርጊቶች",
+    accessor: "action",
+  },
+
+
+];
+
+
+// user tables columns 
+export const userColumnsData = [
+  {
+    Header: "First Name",
+    accessor: "firstName",
+  },
+  {
+    Header: "Last Name",
+    accessor: "lastName",
+  },
+
+  {
+    Header: "Email",
+    accessor: "email",
+  },
+
+  {
+    Header: "Role",
+    accessor: "role",
+  },
+  {
+    Header: "Status",
+    accessor: "status",
+  },
+];
+
+
+// employee tables columns 
+export const employeeColumnsData = [
+  {
+    Header: "ስም",
+    accessor: "firstName",
+  },
+  {
+    Header: "የአባት ስም",
+    accessor: "middleName",
+  },
+
+  {
+    Header: "ስልክ ቁጥር",
+    accessor: "phoneNumber",
+  },
+
+  {
+    Header: "ተቋም",
+    accessor: "institution",
+  },
+
+];
+
+
+// employee tables columns 
+export const institutionColumnsData = [
+  {
+    Header: "የተቋም ስም",
+    accessor: "institutionName",
+  },
+  {
+    Header: "ዘርፍ",
+    accessor: "institutionCategory",
+  },
+
+
+
 ];

@@ -11,10 +11,16 @@ export const compliantApiSlice = apiSlice.injectEndpoints({
           }),
 
           getEmployeeCompliantRequests: builder.query({
-            query: ({employeeId}) => ({
-              url: `/compliants/${employeeId}`,
-              method: 'GET',
-            }),
+            query: ({employeeId}) => {
+              const params = new URLSearchParams();
+            
+              if (employeeId) params.append('employeeId', employeeId);
+      console.log(params, "paa")
+              return {
+                  url: `/compliants?${params.toString()}`,
+                  method: 'GET',
+              } 
+            },
             providesTags: (result) =>
               result
                 ? [
@@ -27,6 +33,13 @@ export const compliantApiSlice = apiSlice.injectEndpoints({
                 : ['Compliant'],
           }),
 
+          getSingleCompliant: builder.query({
+            query: ({compliantId}) => ({
+              url: `/compliant-detail/${compliantId}`,
+              method: 'GET',
+            }),
+          }),
+
     
    
         
@@ -35,5 +48,6 @@ export const compliantApiSlice = apiSlice.injectEndpoints({
 
 export const {
    useCreateCompliantMutation,
-   useGetEmployeeCompliantRequestsQuery
+   useGetEmployeeCompliantRequestsQuery,
+   useGetSingleCompliantQuery
 } = compliantApiSlice

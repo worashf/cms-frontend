@@ -47,14 +47,14 @@ export const userApiSlice = apiSlice.injectEndpoints({
       ],
     }),
     getUsers: builder.query({
-      query: ({ page }) => ({
-        url: `/api/user?page=${page}`,
+      query: ({}) => ({
+        url: `/users`,
         method: 'GET',
       }),
       providesTags: (result, error, arg) =>
         result
           ? [
-              ...result.data.users.map(({ _id }) => ({
+              ...result.data?.map(({ _id }) => ({
                 type: 'User',
                 id: _id,
               })),
@@ -89,4 +89,6 @@ export const {
   useGetUsersQuery,
   useDeleteUserMutation,
   useEditUserMutation,
+
+  
 } = userApiSlice

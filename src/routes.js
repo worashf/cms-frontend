@@ -14,7 +14,13 @@ import LandingPage from "views/landing/LandingPage";
 
 // New complian 
 import ComplianceForm from "views/compliant/ComplianceForm";
+import CompliantDetail from "views/compliant/CompliantDetail";
+// user page
+import UserPage  from "views/admin/users/UserPage";
+import EmployeePage  from "views/admin/employees/EmployeePage"
 
+// institution page
+import InstitutionPage  from "views/admin/institutions/InstitutionPage"
 // Icon Imports
 import {
   MdHome,
@@ -35,49 +41,55 @@ const routes = [
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
+    role : ['COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
   },
 
   {
     name: "ተቋማት",
     layout: "/admin",
     icon: <MdBarChart className="h-6 w-6" />,
-    path: "data-tables",
-    component: <EmployeeCompliantRequest />,
+    path: "insitutions",
+    component: <InstitutionPage />,
+    role : ['COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
   },
   {
     name: "ሠራተኞች",
     layout: "/admin",
     icon: <MdSupervisedUserCircle className="h-6 w-6" />,
-    path: "data-tables",
-    component: <EmployeeCompliantRequest />,
+    path: "employees",
+    component: <EmployeePage />,
+    role: ['COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
   },
-  {
-    name: "አድራሻ",
-    layout: "/admin",
-    icon: <MdOutlineMapsHomeWork className="h-6 w-6" />,
-    path: "data-tables",
-    component: <EmployeeCompliantRequest />,
-  },
+
   {
     name: "ቅሬታ",
-    layout: "/compliant",
+    layout: "/admin",
     icon: <MdBookmark className="h-6 w-6" />,
     path: "data-tables",
     component: <EmployeeCompliantRequest />,
+    role: ['COMPLIANT', 'COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
   },
-  {
-    name: "የቅሬታ መልስ",
-    layout: "/compliant-response",
-    icon: <MdBook className="h-6 w-6" />,
-    path: "data-tables",
-    component: <EmployeeCompliantRequest />,
-  },
+  // {
+  //   name: "የቅሬታ መልስ",
+  //   layout: "/compliant-response",
+  //   icon: <MdBook className="h-6 w-6" />,
+  //   path: "data-tables",
+  //   component: <EmployeeCompliantRequest />,
+  // },
+  // {
+  //   name: "ተጠቃሚዎች",
+  //   layout: "/admin",
+  //   icon: <MdSupervisorAccount className="h-6 w-6" />,
+  //   path: "data-tables",
+  //   component: <EmployeeCompliantRequest />,
+  // },
   {
     name: "ተጠቃሚዎች",
     layout: "/admin",
     icon: <MdSupervisorAccount className="h-6 w-6" />,
-    path: "data-tables",
-    component: <EmployeeCompliantRequest />,
+    path: "users",
+    component: <UserPage/>,
+    role : ['COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
   },
   {
     name: "Profile",
@@ -85,6 +97,7 @@ const routes = [
     path: "profile",
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
+    role: ['COMPLIANT', 'COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
   },
   {
     name: "Sign In",
@@ -115,5 +128,13 @@ const routes = [
     icon: <MdLock className="h-6 w-6" />,
     component: <ComplianceForm />,
   },
+  {
+    name: "Compliant Details",
+    layout: "/admin",
+    path: "/compliant-detail/:compliantId",
+    icon: <MdLock className="h-6 w-6" />,
+    component: <CompliantDetail />,
+  },
+
 ];
 export default routes;

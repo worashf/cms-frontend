@@ -11,12 +11,12 @@ import {
   useTable,
 } from "react-table";
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
-const CompliantRequestTable = (props) => {
+
+const UserTable = (props) => {
   const { columnsData, tableData } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
-
   const tableInstance = useTable(
     {
       columns,
@@ -41,7 +41,7 @@ const CompliantRequestTable = (props) => {
     <Card extra={"w-full sm:overflow-auto p-4"}>
       <header className="relative flex items-center justify-between">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-        ከዚህ በፊት የጠየቁት ቅሬታዎች
+     Users
         </div>
 
         {/* <CardMenu /> */}
@@ -82,7 +82,7 @@ const CompliantRequestTable = (props) => {
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
                     let data = "";
-                    if (cell.column.Header == "የቅሬታ እርስ") {
+                    if (cell.column.Header === "First Name") {
                       data = (
                         <div className="w-full flex items-center gap-2">
                           <Checkbox />
@@ -91,7 +91,7 @@ const CompliantRequestTable = (props) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header == "የቅሬታ አይነት") {
+                    } else if (cell.column.Header === "Last Name") {
                       data = (
                         <div className="flex items-center">
                           <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -99,23 +99,31 @@ const CompliantRequestTable = (props) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header == "የተጠየበት ቀን") {
+                    } else if (cell.column.Header === "Email") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {" "}
                           {cell.value}{" "}
                         </p>
                       );
-                    } else if (cell.column.Header == "ሁኔታ") {
+                    } 
+                    else if (cell.column.Header === "Role") {
+                      data = (
+                        <p className="text-sm font-bold text-navy-700 dark:text-white">
+                          {" "}
+                          {cell.value}{" "}
+                        </p>
+                      );
+                    } else if (cell.column.Header === "Status") {
                      
                         data = (
                           <div className="flex items-center gap-2">
                             <div className={`rounded-full text-xl`}>
-                              {cell.value === "አዲስ" ? (
+                              {cell.value == true ? (
                                 <MdCheckCircle className="text-green-500" />
-                              ) : cell.value === "Disable" ? (
+                              ) : cell.value == "Disable" ? (
                                 <MdCancel className="text-red-500" />
-                              ) : cell.value === "Error" ? (
+                              ) : cell.value == "Error" ? (
                                 <MdOutlineError className="text-orange-500" />
                               ) : null}
                             </div>
@@ -146,4 +154,4 @@ const CompliantRequestTable = (props) => {
   );
 };
 
-export default CompliantRequestTable;
+export default UserTable;

@@ -14,6 +14,10 @@ const App = () => {
         <Route path="/sign-in" element={<Navigate to="/auth/sign-in" replace />} />
         <Route path="/sign-up" element={<Navigate to="/auth/sign-up" replace />} />
         <Route path="/new-complain" element={<Navigate to="/admin/new-complain" replace />} />
+        <Route path="/compliant-detail/:compliantId" element={<Navigate to="/admin/compliant-detail/:id" replace />} />
+        <Route path="/users" element={<Navigate to="/admin/users" replace />} />
+        <Route path="/employees" element={<Navigate to="/admin/employees" replace />} />
+        <Route path="/institutions" element={<Navigate to="/admin/institutions" replace />} />
         <Route path="/" element={<Navigate to="/auth/" replace />} />
 
       </Routes>
