@@ -1,5 +1,5 @@
 {
-  "name": "Lideta compliance management",
+  "name": "Lideta cms",
   "version": "1.0.0",
   "dependencies": {
     "@chakra-ui/hooks": "^2.1.4",
