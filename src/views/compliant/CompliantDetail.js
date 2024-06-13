@@ -89,19 +89,19 @@ const CompliantDetails = () => {
                   <Box sx={{ border: '1px solid #ddd', padding: 1, borderRadius: '4px', marginBottom: 2 }}>
                     {attachment.fileType.startsWith('image/') ? (
                       <img
-                        src={`http://localhost:5000/attachments/${attachment.fileName}`}
+                        src={`${attachment.fileUrl}`}
                         alt={attachment.fileName}
                         style={{ maxWidth: '100%', height: 'auto', border: '1px solid #ddd', borderRadius: '4px' }}
                       />
                     ) : attachment.fileType === 'application/pdf' ? (
                       <div style={{ height: '500px', border: '1px solid #ddd', borderRadius: '4px' }}>
                         <Viewer
-                          fileUrl={`http://localhost:5000/attachments/${attachment.fileName}`}
+                          fileUrl={`${attachment.fileUrl}`}
                         />
                       </div>
                     ) : (
                       <ListItemText
-                        primary={`http://localhost:6000/attachments/${attachment.fileName}`}
+                        primary={`${attachment.fileUrl}`}
                         secondary={`Type: ${attachment.fileType}`}
                       />
                     )}
