@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseURL = 'https://compliance-management-system.onrender.com/api/v1';
+const baseURL = 'http://localhost:5000/api/v1';
 
 export const apiSlice = createApi({
   reducerPath: 'api',

@@ -14,6 +14,7 @@ import LandingPage from "views/landing/LandingPage";
 
 // New complian 
 import ComplianceForm from "views/compliant/ComplianceForm";
+import ComplianceResponseForm from "views/compliance-response/ComplianceForm"
 import CompliantDetail from "views/compliant/CompliantDetail";
 // user page
 import UserPage  from "views/admin/users/UserPage";
@@ -21,6 +22,10 @@ import EmployeePage  from "views/admin/employees/EmployeePage"
 
 // institution page
 import InstitutionPage  from "views/admin/institutions/InstitutionPage"
+
+//  valid and invalid compliance lists
+import ValidCompliance  from "views/compliant/ValidCompliance"
+
 // Icon Imports
 import {
   MdHome,
@@ -32,7 +37,14 @@ import {
   MdSupervisedUserCircle,
   MdBook,
   MdBookmark,
+  MdQuestionAnswer
 } from "react-icons/md";
+import { CiSquareQuestion } from "react-icons/ci";
+import { MdOutlineDoneAll } from "react-icons/md";
+import { MdOutlineRemoveDone } from "react-icons/md";
+import InvalidCompliance from "views/compliant/InvalidCompliance";
+import EmployeeComplianceResponse from "views/compliant/EmployeeComplianceResponse";
+import ComplianceResponseDetails from "views/compliant/ComplianceResponseDetail";
 
 const routes = [
   {
@@ -60,29 +72,6 @@ const routes = [
     component: <EmployeePage />,
     role: ['COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
   },
-
-  {
-    name: "ቅሬታ",
-    layout: "/admin",
-    icon: <MdBookmark className="h-6 w-6" />,
-    path: "data-tables",
-    component: <EmployeeCompliantRequest />,
-    role: ['COMPLIANT', 'COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
-  },
-  // {
-  //   name: "የቅሬታ መልስ",
-  //   layout: "/compliant-response",
-  //   icon: <MdBook className="h-6 w-6" />,
-  //   path: "data-tables",
-  //   component: <EmployeeCompliantRequest />,
-  // },
-  // {
-  //   name: "ተጠቃሚዎች",
-  //   layout: "/admin",
-  //   icon: <MdSupervisorAccount className="h-6 w-6" />,
-  //   path: "data-tables",
-  //   component: <EmployeeCompliantRequest />,
-  // },
   {
     name: "ተጠቃሚዎች",
     layout: "/admin",
@@ -91,6 +80,15 @@ const routes = [
     component: <UserPage/>,
     role : ['COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
   },
+  {
+    name: "ቅሬታ",
+    layout: "/admin",
+    icon: <MdBookmark className="h-6 w-6" />,
+    path: "compliants",
+    component: <EmployeeCompliantRequest />,
+    role: ['COMPLIANT', 'COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
+  },
+
   {
     name: "Profile",
     layout: "/admin",
@@ -135,6 +133,45 @@ const routes = [
     icon: <MdLock className="h-6 w-6" />,
     component: <CompliantDetail />,
   },
+  {
+    name: "New Compliant Response",
+    layout: "/admin",
+    path: "/new-complian-response/:compliantId",
+    icon: <MdLock className="h-6 w-6" />,
+    component: <ComplianceResponseForm/>,
+  },
+  {
+    name: "አግባብነት ያላቸው",
+    layout: "/admin",
+    path: "valid-compliants",
+    icon: <MdOutlineDoneAll className="h-6 w-6" />,
+    component: <ValidCompliance/>,
+    role : ['COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
+  },
+  {
+    name: "አግባብነት የሌላቸው",
+    layout: "/admin",
+    path: "invalid-compliants",
+    icon: <MdOutlineRemoveDone className="h-6 w-6" />,
+    component: <InvalidCompliance/>,
+    role : ['COMPLIANCE_TEAM_LEADER', 'HEAD_OF_OFFICE', "ADMIN"]
+  },
+  {
+    name: "መልስ የተሰጣቸው",
+    layout: "/admin",
+    path: "employee-compliants-responses",
+    icon: <MdQuestionAnswer className="h-6 w-6" />,
+    component: <EmployeeComplianceResponse/>,
+    role : ['COMPLIANCE_TEAM_LEADER', "COMPLIANT", 'HEAD_OF_OFFICE', "ADMIN"]
+  },
+  {
+    name: "መልስ የተሰጣቸው",
+    layout: "/admin",
+    path: "/compliant-response-detail/:compliantId",
+    component: <ComplianceResponseDetails/>,
+   
+  },
 
+ 
 ];
 export default routes;

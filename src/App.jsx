@@ -19,7 +19,13 @@ const App = () => {
         <Route path="/employees" element={<Navigate to="/admin/employees" replace />} />
         <Route path="/institutions" element={<Navigate to="/admin/institutions" replace />} />
         <Route path="/" element={<Navigate to="/auth/" replace />} />
-
+        <Route path="/new-complian-response/:compliantId" element={<Navigate to="/admin/new-complian-response/:compliantId" replace />} />
+         <Route path="/valid-compliants" element={<Navigate to="/admin/valid-compliants" replace />} />
+        <Route path="/invalid-compliants" element={<Navigate to="/admin/invalid-compliants" replace />} /> 
+        <Route path="/compliants" element={<Navigate to="/admin/compliants" replace />} /> 
+        <Route path="/employee-compliants-responses" element={<Navigate to="/admin/employee-compliants-responses" replace />} /> 
+        <Route path="/compliant-response-detail/:compliantId" element={<Navigate to="/admin/compliant-response-detail/:compliantId" replace />} />
+        
       </Routes>
   <ToastContainer
         position="top-right"

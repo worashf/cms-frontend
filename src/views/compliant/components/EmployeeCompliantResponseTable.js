@@ -10,10 +10,11 @@ import {
   useSortBy,
   useTable,
 } from "react-table";
-import { MdCheckCircle, MdCancel, MdOutlineError ,MdDone } from "react-icons/md";
+import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 import { GrView } from "react-icons/gr";
 import {   useGetSingleCompliantResponseQuery} from '../../../store/services'
-const CompliantRequestTable = (props) => {
+
+const  EmployeeCompliantResponseTable = (props) => {
   const { columnsData, tableData } = props;
 const {compliantId}  = useParams()
   const columns = useMemo(() => columnsData, [columnsData]);
@@ -47,13 +48,11 @@ const {compliantId}  = useParams()
     <Card extra={"w-full sm:overflow-auto p-4"}>
       <header className="relative flex items-center justify-between">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-        ከዚህ በፊት የጠየቁት ቅሬታዎች
+        መልስ የተሰጠባቸው ቅሬታዎች
         </div>
 
         {/* <CardMenu /> */}
-        <Link to="/admin/new-complian" className="text-md md:text-lg text-navy bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded">
-            አዲስ ቅሬታ
-          </Link>
+     
       </header>
 
       <div className="mt-8 overflow-x-scroll xl:overflow-x-hidden">
@@ -117,12 +116,12 @@ const {compliantId}  = useParams()
                         data = (
                           <div className="flex items-center gap-2">
                             <div className={`rounded-full text-xl`}>
-                            {cell.value === "አግባብነት ያለው" ? (
-                              <MdDone className="text-green-500" />
-                            ) : cell.value === "አግባብነት የሌለው" ? (
+                            {cell.value == "አግባብነት ያለው" ? (
+                              <GrView className="text-green-500" />
+                            ) : cell.value == "አግባብነት የሌለው" ? (
                               <MdCancel className="text-red-500" />
-                            ) : cell.value === "አዲስ" ? (
-                              <MdCheckCircle className="text-navy-500" />
+                            ) : cell.value == "አዲስ" ? (
+                              <MdOutlineError className="text-navy-500" />
                             ) : null}
                             </div>
                             <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -137,20 +136,20 @@ const {compliantId}  = useParams()
                       data = (
                         <div className="flex items-center gap-1">
                           <div className={`rounded-full text-xl`}>
-                            {cell.value === "አዲስ" ? (
+                            {cell.value === "አግባብነት ያለው" ? (
                               <GrView className="text-green-500" />
-                            ) : cell.value === "Disable" ? (
+                            ) : cell.value === "አግባብነት የሌለው" ? (
                               <MdCancel className="text-red-500" />
-                            ) : cell.value === "Error" ? (
-                              <MdOutlineError className="text-orange-500" />
+                            ) : cell.value === "አዲስ" ? (
+                              <MdOutlineError className="text-navy-500" />
                             ) : null}
                           </div>
                           <p className="text-sm font-bold text-navy-700 dark:text-white">
-                          <Link to={`/admin/compliant-detail/${cell.value}`} className="text-md md:text-lg text-navy bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded">
-                          አሳይ
+                          <Link to={`/admin/compliant-response-detail/${cell.value}`} className="text-md md:text-lg text-navy bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded">
+                          መልስ  አሳይ
           </Link>
                           </p>
-                        
+                       
                         </div>
                       );
                     
@@ -175,4 +174,4 @@ const {compliantId}  = useParams()
   );
 };
 
-export default CompliantRequestTable;
+export default EmployeeCompliantResponseTable;

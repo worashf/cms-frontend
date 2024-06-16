@@ -55,8 +55,7 @@ export default function SignIn() {
       .min(1, 'አጭር ነው')
       .required('የአያት ስም ያስገቡ'),
     email: Yup.string()
-      .email('ትክክለኛ የኢሜል አድራሻ ያስገቡ')
-      .required('የኢሜል አድራሻ ያስገቡ'),
+      .email('ትክክለኛ የኢሜል አድራሻ ያስገቡ'),
     password: Yup.string()
       .min(6, 'አጭር ነው, በትንሹ ስድስት ያስገቡ')
       .max(10, 'ረዘመ, እስከ አስር')
@@ -118,15 +117,15 @@ export default function SignIn() {
         <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
           <div className="w-full flex flex-col mb-4">
           <FormControl fullWidth error={Boolean(touched.selectedCategory && errors.selectedCategory)}>
-      <InputLabel id="institution-label">ተቋም</InputLabel>
+      <InputLabel id="institution-label">የተቋም  ዘርፍ</InputLabel>
       <Select
         labelId="institution-label"
         id="selectedCategory"
-        label="ተቋም"
+        label="የተቋም  ዘርፍ"
         {...getFieldProps('selectedCategory')}
       >
         <MenuItem value="">
-          <em>ተቋም </em>
+          <em>የተቋም  ዘርፍ</em>
         </MenuItem>
         {institutionCategory && institutionCategory.map((institute, index) => (
           <MenuItem key={index} value={institute}>

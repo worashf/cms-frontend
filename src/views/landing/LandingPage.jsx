@@ -4,10 +4,10 @@ import { Box, Typography, List, ListItem, ListItemText } from "@mui/material";
 
 const LandingPage = () => {
   return (
-    <div className="flex min-h-screen flex-col bg-gray-100">
+    <div className="flex min-h-screen max-w-lg  flex-col bg-gray-100">
       {/* Main Content Section */}
       <main className="flex flex-grow flex-col py-5 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-2xl mx-5">
+        <div className="w-full max-w-md mx-5">
           <div>
             <h2 className="mt-6 text-3xl font-extrabold text-blue-800">
               ወደ ቅሬታ ማቅረቢያ መግቢያ እንኳን ደህና መጡ

@@ -28,7 +28,7 @@ export default function SignIn() {
 
   const [showPassword, setShowPassword] = useState(false);
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().email('ትክክለኛ የኢሜል አድራሻ ያስገቡ').required('ኢሜል አድራሻዎን ያስገቡ!'),
+    phoneNumber: Yup.string().required(' ስልክ ቁጥርዎን ያስገቡ!'),
     password: Yup.string().required('የሚስጥር ቁጥር ያስገቡ')
   });
 
@@ -36,7 +36,7 @@ export default function SignIn() {
     if (isSuccess) {
       toast.success('በትክክል ገብተዋል፣ እናመሰግናለን!');
       // dispatch(userLogin())
-      navigate('/admin');
+      navigate('/admin/compliants');
     }
     if(isError){
       toast.error('ችግር ስለተፈጠረ, እንደገና ይሞክሩ!');
@@ -91,13 +91,13 @@ export default function SignIn() {
 
         <TextField
                 fullWidth
-                autoComplete="email"
+                autoComplete="phoneNumber"
                 variant="standard"
-                type="email"
-                label="የኢሜል አድራሻ"
-                {...getFieldProps('email')}
-                error={Boolean(touched.email && errors.email)}
-                helperText={touched.email && errors.email}
+                type="text"
+                label="ስልክ ቁጥር"
+                {...getFieldProps('phoneNumber')}
+                error={Boolean(touched.phoneNumber && errors.phoneNumber)}
+                helperText={touched.phoneNumber && errors.phoneNumber}
               />
           
         {/* Password */}

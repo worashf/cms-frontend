@@ -168,3 +168,27 @@ export const institutionColumnsData = [
 
 
 ];
+
+
+// tables  comployee compliance response columns 
+export const employeeComplainResponseColumnsData = [
+  {
+    Header: "የቅሬታ እርስ",
+    accessor: "compliantTitle",
+  },
+  {
+    Header: "የቅሬታ አይነት",
+    accessor: "compliantCategory",
+  },
+
+  {
+    Header: "ሁኔታ",
+    accessor: "status",
+  },
+  {
+    Header: "ድርጊቶች",
+    accessor: "action",
+  },
+
+
+];

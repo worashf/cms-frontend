@@ -26,7 +26,13 @@ const userSlice = createSlice({
       state.user = action.payload.user
       state.isLogged = true
     },
-   
+    logout: (state) => {
+      localStorage.remove('login-user');
+      state.token = ''
+      state.user = ''
+      state.isLogged = false
+    
+    },
     addToLastSeen: (state, action) => {
       let isItemExist = state.lastSeen.find(item => item.productID === action.payload.productID)
 
@@ -41,6 +47,6 @@ const userSlice = createSlice({
   },
 })
 
-export const { userLogout, userLogin, addToLastSeen} = userSlice.actions
+export const { userLogout, userLogin, logout, addToLastSeen} = userSlice.actions
 
 export default userSlice.reducer

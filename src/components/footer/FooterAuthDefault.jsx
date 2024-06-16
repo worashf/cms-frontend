@@ -12,20 +12,20 @@ export default function Footer() {
         <li className="mb-4 sm:mb-0 sm:mr-6 lg:mr-12 flex items-center">
           <FaPhoneAlt className="mr-2 text-blue-700" />
           <span className="text-sm md:text-base text-blue-700">
-            +251 955 986 083
+            0118552673
           </span>
         </li>
         <li className="mb-4 sm:mb-0 sm:mr-6 lg:mr-12 flex items-center">
           <FaEnvelope className="mr-2 text-blue-700" />
           <span className="text-sm md:text-base text-blue-700">
-            lidetasubcityhr@gmail.com
+          Lidetapublicservice@gmail.com
           </span>
         </li>
         <li className="mb-4 sm:mb-0 sm:mr-6 lg:mr-12 flex items-center">
           <FaFacebook className="mr-2 text-blue-700" />
           <a
             target="_blank"
-            href="https://www.facebook.com/lidetasubcity"
+            href="https://www.facebook.com/profile.php?id=100084495827661&mibextid=ZbWKwL"
             className="text-sm md:text-base text-blue-700 hover:text-blue-500"
           >
             Facebook
@@ -35,7 +35,7 @@ export default function Footer() {
           <FaTelegramPlane className="mr-2 text-blue-700" />
           <a
             target="_blank"
-            href="https://t.me/lidetasubcity"
+            href="https://t.me/lidetapublicofficepage"
             className="text-sm md:text-base text-blue-700 hover:text-blue-500"
           >
             Telegram

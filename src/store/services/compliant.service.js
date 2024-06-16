@@ -15,7 +15,6 @@ export const compliantApiSlice = apiSlice.injectEndpoints({
               const params = new URLSearchParams();
             
               if (employeeId) params.append('employeeId', employeeId);
-      console.log(params, "paa")
               return {
                   url: `/compliants?${params.toString()}`,
                   method: 'GET',
@@ -40,6 +39,19 @@ export const compliantApiSlice = apiSlice.injectEndpoints({
             }),
           }),
 
+          getAllValidCompliants: builder.query({
+            query: () => ({
+              url: `/valid-compliants`,
+              method: 'GET',
+            }),
+          }),
+          getAllInValidCompliants: builder.query({
+            query: () => ({
+              url: `/invalid-compliants`,
+              method: 'GET',
+            }),
+          }),
+
     
    
         
@@ -49,5 +61,7 @@ export const compliantApiSlice = apiSlice.injectEndpoints({
 export const {
    useCreateCompliantMutation,
    useGetEmployeeCompliantRequestsQuery,
-   useGetSingleCompliantQuery
+   useGetSingleCompliantQuery,
+   useGetAllInValidCompliantsQuery,
+   useGetAllValidCompliantsQuery
 } = compliantApiSlice
